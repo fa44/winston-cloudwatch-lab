@@ -2,6 +2,7 @@
   "name": "hello_world",
   "version": "1.0.0",
   "description": "hello world sample for NodeJS",
+  "type": "module",
   "main": "app.js",
   "repository": "https://github.com/awslabs/aws-sam-cli/tree/develop/samcli/local/init/templates/cookiecutter-aws-sam-hello-nodejs",
   "author": "SAM CLI",
@@ -13,12 +14,17 @@
     "test": "npm run compile && npm run unit"
   },
   "dependencies": {
-    "esbuild": "^0.14.14"
+    "@aws-sdk/client-secrets-manager": "^3.716.0",
+    "esbuild": "^0.14.14",
+    "util.promisify": "^1.1.3",
+    "winston": "^3.17.0",
+    "winston-cloudwatch": "^6.3.0"
   },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.92",
     "@types/jest": "^29.2.0",
     "@types/node": "^18.11.4",
+    "@types/util.promisify": "^1.0.9",
     "@typescript-eslint/eslint-plugin": "^5.10.2",
     "@typescript-eslint/parser": "^5.10.2",
     "eslint": "^8.8.0",

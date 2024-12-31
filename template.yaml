@@ -25,11 +25,28 @@ Resources:
           Properties:
             Path: /hello
             Method: get
+      Policies:
+      - Statement:
+        - Sid: CloudWatchDescribeLogStreams
+          Effect: Allow
+          Action:
+          - logs:DescribeLogStreams
+          Resource: '*'
+        - Sid: GetAwsSecretKey
+          Effect: Allow
+          Action:
+          - secretsmanager:GetSecretValue
+          Resource: 'arn:aws:secretsmanager:*:*:secret:AWS_SECRET_KEY-*'
+        - Sid: GetAwsAccessKeyId
+          Effect: Allow
+          Action:
+          - secretsmanager:GetSecretValue
+          Resource: 'arn:aws:secretsmanager:*:*:secret:AWS_ACCESS_KEY_ID-*'
     Metadata: # Manage esbuild properties
       BuildMethod: esbuild
       BuildProperties:
         Minify: true
-        Target: "es2020"
+        Target: "es2022"
         Sourcemap: true
         EntryPoints: 
         - app.ts
